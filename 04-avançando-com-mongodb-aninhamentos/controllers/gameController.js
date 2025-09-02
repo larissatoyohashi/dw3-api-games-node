@@ -19,8 +19,8 @@ const getAllgames = async(req,res) => {
 
 const createGame = async(req,res) => {
     try {
-         const {title, year, genre, plataforma, price} = req.body;
-         await gameService.Create(title, year, genre, plataforma, price)
+         const {title, year, price, description} = req.body;
+         await gameService.Create(title, year,price, description)
          res.sendStatus(201) // Código 201 -> Recurso criado com sucesso
     } catch(error){
         console.log(error)
@@ -34,9 +34,9 @@ const updateGame = async(req,res) => {
  try{
     if(ObjectId.isValid(req.params.id)){
       const id = req.params.id
-      const {title, year, genre, platform, price} = req.body
+      const {title, year, price, description} = req.body
       
-      const game = await gameService.Update(id, title, year, genre, platform, price)
+      const game = await gameService.Update(id, title, year,price, description)
       res.sendStatus(200).json({game}) // Código 200 - OK
     }else{
       res.sendStatus(400); // Código 400 (BAD REQUEST)

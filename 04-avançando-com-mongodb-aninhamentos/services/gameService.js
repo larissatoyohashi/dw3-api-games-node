@@ -26,14 +26,13 @@ class gamesService {
     }
 
   // Método para alterar cadastro do jogo
-    async Update(title, year, genre, pataforma, price){
+    async Update(title, year, price, description){
       try{
         await Game.findByIdAndUpdate(id,{
           title,
           year,
-          genre, 
-          plataforma,
-          price,
+          price, 
+          description
         });
 
         console.log(`Dados do game com o id ${id} alterados com sucesso`);
@@ -45,14 +44,13 @@ class gamesService {
     }
 
   // Método para cadastro do jogo
-  async Create(title, year, genre, plataforma, price) {
+  async Create(title, year,price, description) {
     try {
       const newGame = new Game({
         title,
         year,
-        genre,
-        plataforma,
-        price,
+        price, 
+        description
       });
         await newGame.save();
         
