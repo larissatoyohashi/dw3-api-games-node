@@ -1,7 +1,8 @@
 import express from "express";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import Movie from "./models/Movies.js"
 import movieRoutes from "./routes/movieRoutes.js";
+import mongoose from './config/db-connection.js'
 
 const app = express();
 
@@ -10,7 +11,7 @@ const app = express();
 
 // Iniciando conexão com o banco de dados MongoDB
 
-mongoose.connect("mongodb://127.0.0.1:27017/api-themovies")
+// mongoose.connect("mongodb://127.0.0.1:27017/api-themovies")
 
 app.get("/", async (req,res) => { 
     try {
